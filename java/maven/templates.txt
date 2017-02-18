@@ -1,0 +1,115 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Maven Stub Project (No POM) 1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] >>> maven-archetype-plugin:2.2:generate (default-cli) @ standalone-pom >>>
+[INFO] 
+[INFO] <<< maven-archetype-plugin:2.2:generate (default-cli) @ standalone-pom <<<
+[INFO] 
+[INFO] --- maven-archetype-plugin:2.2:generate (default-cli) @ standalone-pom ---
+[INFO] Generating project in Interactive mode
+[WARNING] Error reading archetype catalog http://repo1.maven.org/maven2
+org.apache.maven.archetype.source.ArchetypeDataSourceException: Error parsing archetype catalog.
+	at org.apache.maven.archetype.source.CatalogArchetypeDataSource.readCatalog(CatalogArchetypeDataSource.java:194)
+	at org.apache.maven.archetype.source.RemoteCatalogArchetypeDataSource.downloadCatalog(RemoteCatalogArchetypeDataSource.java:121)
+	at org.apache.maven.archetype.source.RemoteCatalogArchetypeDataSource.getArchetypeCatalog(RemoteCatalogArchetypeDataSource.java:87)
+	at org.apache.maven.archetype.DefaultArchetypeManager.getRemoteCatalog(DefaultArchetypeManager.java:216)
+	at org.apache.maven.archetype.DefaultArchetypeManager.getRemoteCatalog(DefaultArchetypeManager.java:205)
+	at org.apache.maven.archetype.ui.generation.DefaultArchetypeSelector.getArchetypesByCatalog(DefaultArchetypeSelector.java:200)
+	at org.apache.maven.archetype.ui.generation.DefaultArchetypeSelector.selectArchetype(DefaultArchetypeSelector.java:71)
+	at org.apache.maven.archetype.mojos.CreateProjectFromArchetypeMojo.execute(CreateProjectFromArchetypeMojo.java:197)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: Expected root element 'archetype-catalog' but found 'html' (position: START_TAG seen <html>... @1:6) 
+	at org.apache.maven.archetype.catalog.io.xpp3.ArchetypeCatalogXpp3Reader.read(ArchetypeCatalogXpp3Reader.java:979)
+	at org.apache.maven.archetype.catalog.io.xpp3.ArchetypeCatalogXpp3Reader.read(ArchetypeCatalogXpp3Reader.java:914)
+	at org.apache.maven.archetype.catalog.io.xpp3.ArchetypeCatalogXpp3Reader.read(ArchetypeCatalogXpp3Reader.java:928)
+	at org.apache.maven.archetype.source.CatalogArchetypeDataSource.readCatalog(CatalogArchetypeDataSource.java:186)
+	... 28 more
+[WARNING] No archetype found in remote catalog. Defaulting to internal catalog
+[INFO] No archetype defined. Using maven-archetype-quickstart (org.apache.maven.archetypes:maven-archetype-quickstart:1.0)
+Choose archetype:
+1: internal -> org.appfuse.archetypes:appfuse-basic-jsf (AppFuse archetype for creating a web application with Hibernate, Spring and JSF)
+2: internal -> org.appfuse.archetypes:appfuse-basic-spring (AppFuse archetype for creating a web application with Hibernate, Spring and Spring MVC)
+3: internal -> org.appfuse.archetypes:appfuse-basic-struts (AppFuse archetype for creating a web application with Hibernate, Spring and Struts 2)
+4: internal -> org.appfuse.archetypes:appfuse-basic-tapestry (AppFuse archetype for creating a web application with Hibernate, Spring and Tapestry 4)
+5: internal -> org.appfuse.archetypes:appfuse-core (AppFuse archetype for creating a jar application with Hibernate and Spring and XFire)
+6: internal -> org.appfuse.archetypes:appfuse-modular-jsf (AppFuse archetype for creating a modular application with Hibernate, Spring and JSF)
+7: internal -> org.appfuse.archetypes:appfuse-modular-spring (AppFuse archetype for creating a modular application with Hibernate, Spring and Spring MVC)
+8: internal -> org.appfuse.archetypes:appfuse-modular-struts (AppFuse archetype for creating a modular application with Hibernate, Spring and Struts 2)
+9: internal -> org.appfuse.archetypes:appfuse-modular-tapestry (AppFuse archetype for creating a modular application with Hibernate, Spring and Tapestry 4)
+10: internal -> org.makumba:makumba-archetype (Archetype for a simple Makumba application)
+11: internal -> org.apache.maven.archetypes:maven-archetype-j2ee-simple (A simple J2EE Java application)
+12: internal -> org.apache.maven.archetypes:maven-archetype-marmalade-mojo (A Maven plugin development project using marmalade)
+13: internal -> org.apache.maven.archetypes:maven-archetype-mojo (A Maven Java plugin development project)
+14: internal -> org.apache.maven.archetypes:maven-archetype-portlet (A simple portlet application)
+15: internal -> org.apache.maven.archetypes:maven-archetype-profiles ()
+16: internal -> org.apache.maven.archetypes:maven-archetype-quickstart ()
+17: internal -> org.apache.maven.archetypes:maven-archetype-site-simple (A simple site generation project)
+18: internal -> org.apache.maven.archetypes:maven-archetype-site (A more complex site project)
+19: internal -> org.apache.maven.archetypes:maven-archetype-webapp (A simple Java web application)
+20: internal -> net.databinder:data-app (A new Databinder application with sources and resources.)
+21: internal -> org.apache.camel.archetypes:camel-archetype-component (Creates a new Camel component)
+22: internal -> org.apache.camel.archetypes:camel-archetype-activemq (Creates a new Camel project that configures and interacts with ActiveMQ)
+23: internal -> org.apache.camel.archetypes:camel-archetype-java (Creates a new Camel project using Java DSL)
+24: internal -> org.apache.camel.archetypes:camel-archetype-scala (Creates a new Camel project using Scala DSL)
+25: internal -> org.apache.camel.archetypes:camel-archetype-spring (Creates a new Camel project with added Spring DSL support)
+26: internal -> org.apache.camel.archetypes:camel-archetype-war (Creates a new Camel project that deploys the Camel Web Console, REST API, and your routes as a WAR)
+27: internal -> org.jini.maven-jini-plugin:jini-service-archetype (Archetype for Jini service project creation)
+28: internal -> de.akquinet.jbosscc:jbosscc-seam-archetype (Maven Archetype to generate a Seam Application- Documentation)
+29: internal -> org.apache.maven.archetypes:softeu-archetype-seam (JSF+Facelets+Seam Archetype)
+30: internal -> org.apache.maven.archetypes:softeu-archetype-seam-simple (JSF+Facelets+Seam (no persistence) Archetype)
+31: internal -> org.apache.maven.archetypes:softeu-archetype-jsf (JSF+Facelets Archetype)
+32: internal -> com.rfc.maven.archetypes:jpa-maven-archetype (JPA application)
+33: internal -> org.springframework.osgi:spring-osgi-bundle-archetype (Spring-OSGi archetype)
+34: internal -> com.atlassian.maven.archetypes:bamboo-plugin-archetype (Atlassian Bamboo plugin archetype)
+35: internal -> com.atlassian.maven.archetypes:confluence-plugin-archetype (Atlassian Confluence plugin archetype)
+36: internal -> com.atlassian.maven.archetypes:jira-plugin-archetype (Atlassian JIRA plugin archetype)
+37: internal -> net.sf.maven-har:maven-archetype-har (Hibernate Archive)
+38: internal -> net.sf.maven-sar:maven-archetype-sar (JBoss Service Archive)
+39: internal -> org.apache.wicket:wicket-archetype-quickstart (A simple Apache Wicket project)
+40: internal -> org.apache.tapestry:quickstart (A simple Apache Tapestry 5 Project)
+41: internal -> org.scala-tools.archetypes:scala-archetype-simple (A simple scala project)
+42: internal -> net.liftweb:lift-archetype-blank (A blank/empty liftweb project)
+43: internal -> net.liftweb:lift-archetype-basic (The basic (liftweb) project)
+44: internal -> org.apache.cocoon:cocoon-22-archetype-block-plain (http://cocoon.apache.org/2.2/maven-plugins/)
+45: internal -> org.apache.cocoon:cocoon-22-archetype-block (http://cocoon.apache.org/2.2/maven-plugins/)
+46: internal -> org.apache.cocoon:cocoon-22-archetype-webapp (http://cocoon.apache.org/2.2/maven-plugins/)
+47: internal -> org.apache.myfaces.buildtools:myfaces-archetype-helloworld (A simple archetype using MyFaces)
+48: internal -> org.apache.myfaces.buildtools:myfaces-archetype-helloworld-facelets (A simple archetype using MyFaces and facelets)
+49: internal -> org.apache.myfaces.buildtools:myfaces-archetype-trinidad (A simple archetype using Myfaces and Trinidad)
+50: internal -> org.apache.myfaces.buildtools:myfaces-archetype-jsfcomponents (A simple archetype for create custom JSF components using MyFaces)
+51: internal -> org.codehaus.gmaven.archetypes:gmaven-archetype-basic (Groovy basic archetype)
+52: internal -> org.codehaus.gmaven.archetypes:gmaven-archetype-mojo (Groovy mojo archetype)
+53: internal -> org.apache.struts:struts2-archetype-starter (Struts 2 Starter Archetype)
+54: internal -> org.tynamo:tynamo-archetype (Creates a CRUD web application based on Tapestry 5 and Tynamo, a model-driven Java web framework)
+55: internal -> tellurium:tellurium-junit-archetype (Tellurium JUnit project archetype for the Tellurium Automated Testing Framework)
+56: internal -> tellurium:tellurium-testng-archetype (Tellurium TestNG project archetype for the Tellurium Automated Testing Framework)
+57: internal -> org.fusesource.scalate.tooling:scalate-archetype-empty (Generates a Scalate empty web application)
+58: internal -> org.fusesource.scalate.tooling:scalate-archetype-guice (Generates a Scalate Jog web application)
+Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): 16: Downloading: http://repo.maven.apache.org/maven2/org/apache/maven/archetypes/maven-archetype-quickstart/maven-metadata.xml
+531/531 B               Downloaded: http://repo.maven.apache.org/maven2/org/apache/maven/archetypes/maven-archetype-quickstart/maven-metadata.xml (531 B at 0.6 KB/sec)
+Define value for property 'groupId': : 
