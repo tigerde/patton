@@ -1,0 +1,6 @@
+redis:
+  image: redis:latest
+  volume:
+    - /data/redis:/data
+  ports:
+    - "6379:6379"
