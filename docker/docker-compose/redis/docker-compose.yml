@@ -1,6 +1,7 @@
 redis:
   image: redis:latest
+  restart:  always
   volume:
     - /data/redis:/data
   ports:
-    - "6379:6379"
+    - 6379:6379

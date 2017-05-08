@@ -2,11 +2,11 @@ mysql:
   image: mysql:5.7.18
   volume:
     - /data/mysql:/var/lib/mysql
-  restart:always
+  restart:  always
   environment:
     - MYSQL_ROOT_PASSWORD=root
     - MYSQL_DATABASE=mysql
     - MYSQL_USER=mysql
     - MYSQL_PASSWORD=mysql
   ports:
-    - "3306:3306"
+    - 3306:3306
