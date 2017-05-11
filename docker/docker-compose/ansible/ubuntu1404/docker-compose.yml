@@ -1,0 +1,11 @@
+webui:
+  image: williamyeh/ansible:ubuntu14.04
+  external_links:
+    - mysql_mysql_1:mysql
+    - redis_redis_1:redis
+  links:
+    - scheduler
+    - phantomjs
+  command: webui
+  ports:
+    - "5000:5000"

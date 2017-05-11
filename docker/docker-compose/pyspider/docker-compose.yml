@@ -4,33 +4,33 @@ phantomjs:
 result:
   image: binux/pyspider:latest
   external_links:
-    - mysql
-    - rabbitmq
+    - mysql_mysql_1:mysql
+    - redis_redis_1:redis
   command: result_worker
 processor:
   image: binux/pyspider:latest
   external_links:
-    - mysql
-    - rabbitmq
+    - mysql_mysql_1:mysql
+    - redis_redis_1:redis
   command: processor
 fetcher:
   image: binux/pyspider:latest
   external_links:
-    - rabbitmq
+    - redis_redis_1:redis
   links:
     - phantomjs
   command : fetcher
 scheduler:
   image: binux/pyspider:latest
   external_links:
-    - mysql
-    - rabbitmq
+    - mysql_mysql_1:mysql
+    - redis_redis_1:redis
   command: scheduler
 webui:
   image: binux/pyspider:latest
   external_links:
-    - mysql
-    - rabbitmq
+    - mysql_mysql_1:mysql
+    - redis_redis_1:redis
   links:
     - scheduler
     - phantomjs
