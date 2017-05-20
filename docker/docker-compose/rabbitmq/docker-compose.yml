@@ -11,3 +11,4 @@ rabbitmq:
     - 25672:25672
     - 4370:4369
     - 8080:15672
+# managment user&pw:guest/guest
