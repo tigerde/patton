@@ -3,6 +3,9 @@ rabbitmq:
   volumes:
     - /data/rabbitmq:/var/lib/rabbitmq
   restart:  always
+  envirements:
+    - RABBITMQ_DEFAULT_USER=admin
+    - RABBITMQ_DEFAULT_PASS=admin
   ports:
     - 5671:5671
     - 5672:5672
@@ -11,4 +14,4 @@ rabbitmq:
     - 25672:25672
     - 4370:4369
     - 8080:15672
-# managment user&pw:guest/guest
+# managment user&pw:admin/admin
