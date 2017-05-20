@@ -5,18 +5,18 @@ result:
   image: binux/pyspider:latest
   external_links:
     - mysql_mysql_1:mysql
-    - rabbitmq:rabbitmq
+    - rabbitmq_rabbitmq_1:rabbitmq
   command: result_worker
 processor:
   image: binux/pyspider:latest
   external_links:
     - mysql_mysql_1:mysql
-    - rabbitmq:rabbitmq
+    - rabbitmq_rabbitmq_1:rabbitmq
   command: processor
 fetcher:
   image: binux/pyspider:latest
   external_links:
-    - rabbitmq:rabbitmq
+    - rabbitmq_rabbitmq_1:rabbitmq
   links:
     - phantomjs
   command : fetcher
@@ -24,13 +24,13 @@ scheduler:
   image: binux/pyspider:latest
   external_links:
     - mysql_mysql_1:mysql
-    - rabbitmq:rabbitmq
+    - rabbitmq_rabbitmq_1:rabbitmq
   command: scheduler
 webui:
   image: binux/pyspider:latest
   external_links:
     - mysql_mysql_1:mysql
-    - rabbitmq:rabbitmq
+    - rabbitmq_rabbitmq_1:rabbitmq
   links:
     - scheduler
     - phantomjs
