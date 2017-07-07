@@ -1,0 +1,10 @@
+data1_phpmyadmin:
+    image: registry
+    container_name: data1_phpmyadmin
+    environment:
+     - PMA_ARBITRARY=1
+    restart: always
+    ports:
+     - 8080:80
+    volumes:
+     - /data/sessions
