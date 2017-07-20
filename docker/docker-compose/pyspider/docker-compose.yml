@@ -1,37 +1,47 @@
+# mysql
+mysql:
+  image: mysql:latest
+  container_name: mysql
+  volumes: /data/mysql:/var/lib/mysql
+  ports: 
+    - 3306:3306
+  environment: 
+    - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+rabbitmq:
+  image: rabbitmq:latest
+  container_name: rabbitmq
 phantomjs:
   image: binux/pyspider:latest
   command: phantomjs
 result:
   image: binux/pyspider:latest
-  external_links:
-    - mysql_mysql_1:mysql
-    - rabbitmq_rabbitmq_1:rabbitmq
+  links:
+    - mysql
+    - rabbitmq
   command: result_worker
 processor:
   image: binux/pyspider:latest
-  external_links:
-    - mysql_mysql_1:mysql
-    - rabbitmq_rabbitmq_1:rabbitmq
+  links:
+    - mysql
+    - rabbitmq
   command: processor
 fetcher:
   image: binux/pyspider:latest
-  external_links:
-    - rabbitmq_rabbitmq_1:rabbitmq
   links:
+    - rabbitmq
     - phantomjs
   command : fetcher
 scheduler:
   image: binux/pyspider:latest
-  external_links:
-    - mysql_mysql_1:mysql
-    - rabbitmq_rabbitmq_1:rabbitmq
+  links:
+    - mysql
+    - rabbitmq
   command: scheduler
 webui:
   image: binux/pyspider:latest
-  external_links:
-    - mysql_mysql_1:mysql
-    - rabbitmq_rabbitmq_1:rabbitmq
   links:
+    - mysql
+    - rabbitmq
     - scheduler
     - phantomjs
   command: webui
