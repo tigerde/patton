@@ -1,0 +1,37 @@
+mysql:
+  image: mysql:5.7.18
+  container_name: mysql5.7
+  volumes:
+    - /data/mysql:/var/lib/mysql
+    - ./conf:/etc/mysql/conf.d
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=mysql
+    - MYSQL_USER=mysql
+    - MYSQL_PASSWORD=mysql
+  ports:
+    - 3306:3306
+rabbitmq:
+  image: rabbitmq:3-management
+  volumes:
+    - /data/rabbitmq:/var/lib/rabbitmq
+  environment:
+    - RABBITMQ_DEFAULT_USER=admin
+    - RABBITMQ_DEFAULT_PASS=admin
+  ports:
+    - 5671:5671
+    - 5672:5672
+    - 15671:15671
+    - 15672:15672
+    - 25672:25672
+    - 4370:4369
+    - 8080:15672
+pyspider:
+  image: patton/pyspider:0.1
+  volume: ./config.json:/root/config.json
+  command: -c /root/config.json
+  links:
+    - mysql
+    - rabbitmq
+  ports:
+    - "5000:5000"
