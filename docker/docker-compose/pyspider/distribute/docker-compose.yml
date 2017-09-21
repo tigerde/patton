@@ -1,4 +1,3 @@
-
 redis:
   image: redis:latest
   ports:
@@ -7,7 +6,7 @@ mysql:
   image: mysql:5.7.18
   container_name: mysql5.7
   volumes:
-    - /data/mysql:/var/lib/mysql
+    - /data/mysqltmp:/var/lib/mysql
     - ./conf:/etc/mysql/conf.d
   environment:
     - MYSQL_ROOT_PASSWORD=root
@@ -15,11 +14,14 @@ mysql:
     - MYSQL_USER=mysql
     - MYSQL_PASSWORD=mysql
   ports:
-    - 3306:3306
+    - 3307:3306
 scheduler:
   image: 'patton/pyspider:0.1'
   command: '--taskdb "mysql+taskdb://root:root@mysql:3306/taskdb"  --projectdb "mysql+projectdb://root:root@mysql:3306/projectdb" --resultdb "mysql+resultdb://root:root@mysql:3306/resultdb" --message-queue "redis://redis:6379/1"  scheduler --inqueue-limit 5000 --delete-time 43200'
   cpu_shares: 512
+  links:
+    - mysql
+    - redis
   environment:
     - 'EXCLUDE_PORTS=5000,25555'
   restart: always 
@@ -56,12 +58,17 @@ fetcher-lb:
 processor:
   image: 'patton/pyspider:0.1'
   command: '--projectdb "mysql+projectdb://root:root@mysql:3306/projectdb" --message-queue "redis://redis:6379/1" processor'
+  links:
+    - redis
   cpu_shares: 512
   mem_limit: 256m
   restart: always
 result-worker:
   image: 'patton/pyspider:0.1'
   command: '--taskdb "mysql+taskdb://root:root@mysql:3306/taskdb"  --projectdb "mysql+projectdb://root:root@mysql:3306/projectdb" --resultdb "mysql+resultdb://root:root@mysql:3306/resultdb" --message-queue "redis://redis:6379/1" result_worker'
+  links:
+    - mysql
+    - redis
   cpu_shares: 512
   mem_limit: 256m
   restart: always
@@ -73,6 +80,8 @@ webui:
     - 'EXCLUDE_PORTS=24444,25555,23333'
   links:
     - 'fetcher-lb:fetcher'
+    - mysql
+    - redis
   mem_limit: 256m
   restart: always
 webui-lb:
