@@ -1,35 +1,42 @@
 phantomjs:
   image: patton/pyspider:0.1
-  volume: ./config.json:/root/config.json
+  volumes: 
+    - ./config.json:/root/config.json
   command: -c /root/config.json phantomjs
 result:
   image: patton/pyspider:0.1
   external_links:
     - mysql
     - rabbitmq
-  volume: ./config.json:/root/config.json
+  volumes: 
+    - ./config.json:/root/config.json
   command: -c /root/config.json result_worker
 processor:
   image: patton/pyspider:0.1
   external_links:
     - mysql
     - rabbitmq
-  volume: ./config.json:/root/config.json
+  volumes: 
+    - ./config.json:/root/config.json
   command: -c /root/config.json processor
 fetcher:
   image: patton/pyspider:0.1
   external_links:
+    - mysql
     - rabbitmq
   links:
     - phantomjs
-  volume: ./config.json:/root/config.json
+  volumes: 
+    - ./config.json:/root/config.json
   command: -c /root/config.json fetcher
 scheduler:
   image: patton/pyspider:0.1
   external_links:
     - mysql
     - rabbitmq
-  command: scheduler
+  volumes: 
+    - ./config.json:/root/config.json
+  command: -c /root/config.json scheduler
 webui:
   image: patton/pyspider:0.1
   external_links:
@@ -40,14 +47,5 @@ webui:
     - phantomjs
   volume: ./config.json:/root/config.json
   command: -c /root/config.json webui
-  ports:
-    - "5000:5000"
-pyspider:
-  image: patton/pyspider:0.1
-  volume: ./config.json:/root/config.json
-  command: -c /root/config.json
-  links:
-    - mysql
-    - rabbitmq
   ports:
     - "5000:5000"
