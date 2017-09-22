@@ -41,8 +41,9 @@ fetcher-lb:
 processor:
   image: 'patton/pyspider:0.1'
   command: '--projectdb "mysql+projectdb://root:root@mysql:3306/projectdb" --message-queue "amqp://admin:admin@rabbitmq:5672/%2F" processor'
-  links:
-    - redis
+  external_links:
+    - mysql
+    - rabbitmq
   cpu_shares: 512
   mem_limit: 256m
   restart: always
