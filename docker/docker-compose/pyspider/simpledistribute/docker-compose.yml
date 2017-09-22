@@ -45,7 +45,8 @@ webui:
   links:
     - scheduler
     - phantomjs
-  volume: ./config.json:/root/config.json
+  volumes: 
+    - ./config.json:/root/config.json
   command: -c /root/config.json webui
   ports:
     - "5000:5000"
