@@ -1,6 +1,0 @@
-
-webui:
-  image: patton/pyspider:0.1
-  command: -c /root/config.json
-  ports:
-    - "5000:5000"
