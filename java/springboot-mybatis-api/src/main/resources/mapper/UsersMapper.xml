@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.UsersMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Users">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="USER_ID" jdbcType="BIGINT" property="userId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="PASSWORD_HASH" jdbcType="VARCHAR" property="passwordHash" />
+    <result column="PASSWORD_SALT" jdbcType="BIGINT" property="passwordSalt" />
+    <result column="PASSWORD_LOGIN" jdbcType="BIT" property="passwordLogin" />
+    <result column="OPTIMISTIC_LOCK_VERSION" jdbcType="BIGINT" property="optimisticLockVersion" />
+  </resultMap>
+</mapper>
