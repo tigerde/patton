@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+       <!--指明 controller 所在包，并扫描其中的注解-->
+       <context:component-scan base-package="com.cenyol.example.controller"/>
+
+       <!-- 静态资源(js、image等)的访问 -->
+       <mvc:default-servlet-handler/>
+
+       <!-- 开启注解 -->
+       <mvc:annotation-driven/>
+
+       <!--ViewResolver 视图解析器-->
+       <!--用于支持Servlet、JSP视图解析-->
+       <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+              <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+              <property name="prefix" value="/html/"/>
+              <property name="suffix" value=".jsp"/>
+       </bean>
+       <dubbo:annotation />
+
+       <!-- 提供方应用信息，用于计算依赖关系 -->
+       <dubbo:application name="demo-consumer"/>
+
+       <!-- 使用multicast广播注册中心暴露服务地址 -->
+       <!-- <dubbo:registry address="multicast://224.5.6.7:1234"/> -->
+       <dubbo:registry address="zookeeper://192.168.50.128:2181"/>
+       <dubbo:reference id="demoService"  interface="com.alibaba.dubbo.demo.DemoService"/>
+       <bean class="com.cenyol.example.service.MyService">
+              <property name="demoService" ref="demoService"></property>
+       </bean>
+
+</beans>

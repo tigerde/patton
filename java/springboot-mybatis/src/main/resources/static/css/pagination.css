@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/*---  基础色  ---*/
+/*---  SCRM 主色  ---*/
+/*---  SCRM 文字色  ---*/
+/*---  SCRM 扩展色  ---*/
+#app .element-pagination {
+  text-align: right;
+  margin-top: 20px; }
+#app .element-pagination .el-pagination span {
+    line-height: 40px; }
+#app .element-pagination .el-pagination .el-pagination__total {
+    font-size: 14px; }
+#app .element-pagination .el-pagination .el-pagination__jump {
+    font-size: 14px; }
+#app .element-pagination .el-pagination .el-pagination__jump .el-pagination__editor {
+      width: 72px !important;
+      height: 38px; }
+#app .element-pagination .el-pagination .el-select .el-input input {
+    height: 40px; }
+#app .element-pagination .el-pagination .pagination-btn, .element-pagination .el-pagination .btn-prev, .element-pagination .el-pagination .el-pager .number, .element-pagination .el-pagination .btn-next, .element-pagination .el-pagination .el-icon-more, .element-pagination .el-pagination .btn-quickprev:hover, .element-pagination .el-pagination .btn-quicknext:hover {
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    line-height: 40px;
+    border: none; }
+#app .element-pagination .el-pagination .btn-prev {
+    margin-right: 5px; }
+#app .element-pagination .el-pagination .el-pager .number {
+    margin: 0px 5px; }
+#app  .element-pagination .el-pagination .el-pager .number.active {
+      background-color: #055EB6; }
+#app .element-pagination .el-pagination .btn-next {
+    margin-left: 5px; }
+
+/*# sourceMappingURL=pagination.css.map */
