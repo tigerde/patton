@@ -12,13 +12,15 @@ class VarSafe extends Thread{
     @Override
     public void run() {
         super.run();
+        //判断时未对count进行锁定，导致reduce时可能存在抢锁情况，所以会有reduce处理count数据与判断时count数据不一致情况。
         while (count>0){
+            //System.out.println("由线程"+this.currentThread().getName()+"计算："+count);
             reduce();
         }
     }
 
-    public static void main(String[] args) {
-        Processor p=new Processor();
+    public static void main(String[] args) throws InterruptedException {
+        VarSafe p=new VarSafe();
         Thread t1=new Thread(p,"a");
         Thread t2=new Thread(p,"b");
         Thread t3=new Thread(p,"c");

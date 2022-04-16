@@ -19,6 +19,10 @@ public class ThreadSusRes {
             Thread.sleep(1000);
             sst.resume();
             System.out.println("线程恢复"+sst.getI());
+            sst.suspend();
+            Thread.sleep(1000);
+            sst.resume();
+            sst.stop();
             System.out.println("线程恢复"+sst.getI());
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -35,7 +39,7 @@ class SusResThread extends Thread{
         while (true){
             //i++;
             //System.out.println()是synchronized的，如果使用如下写法，资源被暂停后会输出会被锁定
-            System.out.printf("" + i++);
+            System.out.println("" + i++);
         }
     }
 

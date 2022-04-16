@@ -14,7 +14,7 @@ public class ThreadYield extends Thread{
         int count = 0;
         for (int i = 0; i < 50000000; i++) {
             //cpu资源让出
-            //Thread.yield();
+            Thread.yield();
             count=count+i+1;
         }
         long endTime = System.currentTimeMillis();
