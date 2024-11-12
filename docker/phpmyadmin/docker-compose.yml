@@ -7,4 +7,4 @@ data1_phpmyadmin:
     ports:
      - 8080:80
     volumes:
-     - /software/phpmyadmin/conf/config.inc.php:/etc/phpmyadmin/config.inc.php
+     - /Users/patton/work/workspace/patton/docker/phpmyadmin/conf/config.inc.php:/etc/phpmyadmin/config.inc.php
